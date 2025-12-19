@@ -2,6 +2,7 @@ console.log("Maryam");
 
 const express = require("express");
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -10,7 +11,7 @@ const PORT = 3000;
 
 // 🔹 MongoDB Connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/contactsDB")
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected");
   })
@@ -54,3 +55,4 @@ app.post("/persons", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
