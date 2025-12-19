@@ -5,7 +5,7 @@ const fs = require ("fs");
 const app = express();
 app.use(express.json());
 
-const CART_FILE = "./cart.json";
+const CART_FILE = "cart.json";
 
 app.get("/cart", (req, res) => {
   const data = fs.readFileSync(CART_FILE, "utf-8");
@@ -35,5 +35,6 @@ app.post("/cart", (req, res) => {
 app.listen(3000, () => {
   console.log("Cart server running on port 3000");
 });
+
 
 
